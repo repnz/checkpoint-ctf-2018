@@ -1,0 +1,774 @@
+func main.init at None; called 1;
+.0:
+	 init0_ = *init$guard
+	 if init0_ goto 2 else 1
+
+.1:
+	 *init$guard = true:bool
+	 init1_ = strconv.init()
+	 init2_ = os.init()
+	 init3_ = bufio.init()
+	 init4_ = strings.init()
+	 init5_ = fmt.init()
+	 init6_ = math/rand.init()
+	 jump 2
+
+.2:
+	 return
+
+
+
+
+func main.main at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:247:6; called 1;
+.0:
+	 *g_c = true:bool
+	 main0_ = *os.Stdin
+	 main1_ = make io.Reader <- *os.File (main0_)
+	 main2_ = bufio.NewReader(main1_)
+	 main3_ = new [1]interface{} (varargs)
+	 main4_ = &main3_[0:int]
+	 main5_ = make interface{} <- string ("Please insert input:":string)
+	 *main4_ = main5_
+	 main6_ = slice main3_[:]
+	 main7_ = fmt.Println(main6_...)
+	 main8_ = (*bufio.Reader).ReadString(main2_, 10:byte)
+	 user_input = extract main8_ #0
+	 main10_ = extract main8_ #1
+	 fields = strings.Fields(user_input)
+	 length_of_fields = len(fields)
+	 fields_num = make []int length_of_fields length_of_fields
+	 jump 3
+
+.1:
+	 main14_ = &fields[fields_i]
+	 main15_ = *main14_
+	 main16_ = strconv.Atoi(main15_)
+	 current_int_field = extract main16_ #0
+	 main18_ = extract main16_ #1
+	 main19_ = main18_ != nil:error
+	 if main19_ goto 4 else 5
+
+.2:
+	 main20_ = new [1]int (slicelit)
+	 main21_ = &main20_[0:int]
+	 *main21_ = 1:int
+	 main22_ = slice main20_[:]
+	 main23_ = new [2]int (slicelit)
+	 main24_ = &main23_[0:int]
+	 *main24_ = 0:int
+	 main25_ = &main23_[1:int]
+	 *main25_ = 1:int
+	 main26_ = slice main23_[:]
+	 main27_ = andre(main22_, main26_)
+	 main28_ = new [2]int (slicelit)
+	 main29_ = &main28_[0:int]
+	 *main29_ = 0:int
+	 main30_ = &main28_[1:int]
+	 *main30_ = 2:int
+	 main31_ = slice main28_[:]
+	 main32_ = gza(main31_, main27_)
+	 main33_ = new [2]int (slicelit)
+	 main34_ = &main33_[0:int]
+	 *main34_ = 0:int
+	 main35_ = &main33_[1:int]
+	 *main35_ = 2:int
+	 main36_ = slice main33_[:]
+	 main37_ = gza(main36_, main32_)
+	 main38_ = guru(2:int, 1:int)
+	 main39_ = new [1]int (slicelit)
+	 main40_ = &main39_[0:int]
+	 *main40_ = main38_
+	 main41_ = slice main39_[:]
+	 main42_ = andre(main41_, main37_)
+	 main43_ = len(fields_num)
+	 main44_ = strconv.Itoa(main43_)
+	 main45_ = nas(main44_)
+	 main46_ = doom(main45_, main42_)
+	 main47_ = main46_ != -2:int   # test the length of the kaki
+	 if main47_ goto 6 else 7
+
+.3:
+	 fields_i = phi [0: 0:int, 5: main52_] #i
+	 main49_ = len(fields)
+	 main50_ = fields_i < main49_
+	 if main50_ goto 1 else 2
+
+.5:
+	 current_num = &fields_num[fields_i]
+	 *current_num = current_int_field
+	 main52_ = fields_i + 1:int
+	 jump 3
+
+.6:
+	 *g_c = false:bool
+	 jump 7
+
+.7:
+	 jump 10
+
+.8:
+	 main53_ = &fields_num[fields_num_i]
+	 current_field_num_1 = *main53_
+	 main55_ = current_field_num_1 <= 0:int
+	 if main55_ goto 11 else 12
+
+.9:
+	 main56_ = len(fields_num)
+	 half_fields_num_length = main56_ / 2:int
+	 half_fields_arr = make []int half_fields_num_length half_fields_num_length
+	 jump 15
+
+.10:
+	 fields_num_i = phi [7: 0:int, 12: next_field_num_1] #i
+	 length_of_fields_num = len(fields_num)
+	 main61_ = fields_num_i < length_of_fields_num
+	 if main61_ goto 8 else 9
+
+.12:
+	 next_field_num_1 = fields_num_i + 1:int
+	 jump 10
+
+.13:
+	 current_half_fields_num_ptr = &half_fields_arr[half_fields_num_i]
+	 half_fields_num_i_m2 = half_fields_num_i * 2:int
+	 main65_ = &fields_num[half_fields_num_i_m2]
+	 main66_ = *main65_
+	 half_fields_num_i_m2 = half_fields_num_i * 2:int
+	 half_fields_num_i_m2p1 = half_fields_num_i_m2 + 1:int
+	 main69_ = &fields_num[half_fields_num_i_m2p1]
+	 main70_ = *main69_
+	 main71_ = main66_ - main70_
+	 *current_half_fields_num_ptr = main71_
+	 new_half_fields_num_i = half_fields_num_i + 1:int
+	 jump 15
+
+.14:
+	 jump 18
+
+.15:
+	 half_fields_num_i = phi [9: 0:int, 13: new_half_fields_num_i] #i
+	 half_fields_num_length = len(half_fields_arr)
+	 main75_ = half_fields_num_i < half_fields_num_length
+	 if main75_ goto 13 else 14
+
+.16:
+	 main76_ = half_fields_arr_i + 1:int
+	 main77_ = slice half_fields_arr[:main76_]
+	 sum_until_now = kendrick(main77_)
+	 ascii_sum_until_now = strconv.Itoa(sum_until_now)
+	 digits_sum_until_now = nas(ascii_sum_until_now)
+	 main81_ = new [1]int (slicelit)
+	 main82_ = &main81_[0:int]
+	 *main82_ = 0:int
+	 main83_ = slice main81_[:]
+	 main84_ = doom(digits_sum_until_now, main83_)
+	 main85_ = main84_ == -1:int
+	 if main85_ goto 19 else 20
+
+.17:
+	 jump 23
+
+.18:
+	 half_fields_arr_i = phi [14: 0:int, 20: next_i] #i
+	 len_of_half_fields_arr = len(half_fields_arr)
+	 main88_ = half_fields_arr_i < len_of_half_fields_arr
+	 if main88_ goto 16 else 17
+
+.20:
+	 next_i = half_fields_arr_i + 1:int
+	 jump 18
+
+.21:
+	 main90_ = &fields_num[i]
+	 current_num = *main90_
+	 e_su = e_su + current_num
+	 main93_ = i + 1:int
+	 main94_ = &fields_num[main93_]
+	 main95_ = *main94_
+	 o_su = o_su + main95_
+	 i = i + 2:int
+	 jump 23
+
+.22:
+	 main98_ = o_su != e_su
+	 if main98_ goto 24 else 25
+
+.23:
+	 o_su = phi [17: 0:int, 21: o_su] #o_su
+	 e_su = phi [17: 0:int, 21: e_su] #e_su
+	 i = phi [17: 0:int, 21: i] #i
+	 len_of_fields_num = len(fields_num)
+	 len_of_fields_num_m_1 = len_of_fields_num - 1:int
+	 main104_ = i < len_of_fields_num_m_1
+	 if main104_ goto 21 else 22
+
+.24:
+	 *g_c = false:bool
+	 jump 25
+
+.25:
+	 jump 28
+
+.26:
+	 jump 31
+
+.27:
+	 main105_ = &fields_num[49:int]
+	 main106_ = *main105_
+	 main107_ = main106_ != 98:int
+	 if main107_ goto 34 else 35
+
+.28:
+	 u_arr = phi [25: nil:[]int, 30: u_arr] #u_arr
+	 i = phi [25: 0:int, 30: i] #i
+	 main110_ = len(fields_num)
+	 main111_ = i < main110_
+	 if main111_ goto 26 else 27
+
+.30:
+	 i = i + 1:int
+	 jump 28
+
+.31:
+	 u_arr = phi [26: u_arr, 33: main127_] #u_arr
+	 x = phi [26: 0:int, 33: x] #x
+	 main120_ = len(u_arr)
+	 main121_ = x < main120_
+	 if main121_ goto 29 else 30
+
+.34:
+	 *g_c = false:bool
+	 jump 35
+
+.35:
+	 main129_ = &fields_num[8:int]
+	 main130_ = *main129_
+	 main131_ = &fields_num[9:int]
+	 main132_ = *main131_
+	 main133_ = main130_ - main132_
+	 main134_ = &fields_num[12:int]
+	 main135_ = *main134_
+	 main136_ = main133_ != main135_
+	 if main136_ goto 36 else 37
+
+.36:
+	 *g_c = false:bool
+	 jump 37
+
+.37:
+	 main137_ = *g_c
+	 if main137_ goto 38 else 40
+
+.39:
+	 return
+
+.40:
+	 main143_ = new [1]interface{} (varargs)
+	 main144_ = &main143_[0:int]
+	 main145_ = make interface{} <- string ("No flag for you":string)
+	 *main144_ = main145_
+	 main146_ = slice main143_[:]
+	 main147_ = fmt.Println(main146_...)
+	 jump 39
+
+
+
+
+func main.andre at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:134:6; called 2;
+.0:
+	 length_of_a = len(a)
+	 length_of_b = len(b)
+	 andre2_ = length_of_a > length_of_b
+	 if andre2_ goto 1 else 3
+
+.2:
+	 andre5_ = phi [1: andre4_, 3: andre13_] #sorry
+	 andre6_ = dilla(a, andre5_)
+	 andre7_ = len(a)
+	 andre8_ = len(b)
+	 andre9_ = andre7_ + andre8_
+	 andre10_ = make []int andre9_ andre9_
+	 length_of_10 = len(andre10_)
+	 jump 4
+
+.3:
+	 length_of_a_again = len(a)
+	 andre13_ = make []int length_of_a_again length_of_a_again
+	 jump 2
+
+.4:
+	 andre14_ = phi [2: -1:int, 5: andre15_]
+	 andre15_ = andre14_ + 1:int
+	 andre16_ = andre15_ < length_of_10
+	 if andre16_ goto 5 else 6
+
+.5:
+	 andre17_ = &andre10_[andre15_]
+	 *andre17_ = 0:int
+	 jump 4
+
+.6:
+	 jump 9
+
+.7:
+	 jump 12
+
+.8:
+	 andre18_ = len(andre10_)
+	 andre19_ = andre18_ - 1:int
+	 andre20_ = slice andre10_[:andre19_]
+	 andre21_ = len(andre20_)
+	 jump 13
+
+.9:
+	 b_i = phi [6: 0:int, 11: new_b_i] #i
+	 length_of_b = len(b)
+	 andre24_ = b_i < length_of_b
+	 if andre24_ goto 7 else 8
+
+.10:
+	 andre25_ = &a[a_i]
+	 a_val = *andre25_
+	 andre27_ = &b[b_i]
+	 b_val = *andre27_
+	 andre29_ = a_val * b_val
+	 andre30_ = b_i + a_i
+	 andre31_ = &andre10_[andre30_]
+	 andre32_ = *andre31_
+	 andre33_ = andre32_ + andre29_
+	 *andre31_ = andre33_
+	 new_a_i = a_i + 1:int
+	 jump 12
+
+.11:
+	 new_b_i = b_i + 1:int
+	 jump 9
+
+.12:
+	 a_i = phi [7: 0:int, 10: new_a_i] #j
+	 length_of_a = len(a)
+	 andre38_ = a_i < length_of_a
+	 if andre38_ goto 10 else 11
+
+.13:
+	 andre39_ = phi [8: -1:int, 14: andre10_i, 16: andre10_i]
+	 andre10_i = andre39_ + 1:int
+	 andre41_ = andre10_i < andre21_
+	 if andre41_ goto 14 else 15
+
+.14:
+	 andre42_ = &andre10_[andre10_i]
+	 andre43_ = *andre42_
+	 andre44_ = andre43_ >= 10:int
+	 if andre44_ goto 16 else 13
+
+.15:
+	 return andre10_
+
+.16:
+	 i_plus_one = andre10_i + 1:int
+	 t10_i_plus_one_addr = &andre10_[i_plus_one]
+	 andre47_ = &andre10_[andre10_i]
+	 t10_i_val = *andre47_
+	 andre49_ = t10_i_val / 10:int
+	 t10_i_1 = *t10_i_plus_one_addr
+	 andre51_ = t10_i_1 + andre49_
+	 *t10_i_plus_one_addr = andre51_
+	 andre52_ = &andre10_[andre10_i]
+	 andre53_ = *andre52_
+	 andre54_ = andre53_ % 10:int
+	 *andre52_ = andre54_
+	 jump 13
+
+
+
+
+func main.dilla at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:169:6; called 2;
+.0:
+	 dilla0_ = &a[0:int]
+	 dilla1_ = *dilla0_
+	 dilla2_ = convert indilla64_ <- int (dilla1_)
+	 dilla3_ = math/rand.Seed(dilla2_)
+	 return
+
+
+
+
+func main.gza at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:75:6; called 2;
+.0:
+	 gza0_ = len(a)
+	 gza1_ = len(b)
+	 gza2_ = guru(gza0_, gza1_)
+	 gza3_ = gza2_ + 1:int
+	 return_list_value = make []int gza3_ gza3_
+	 gza5_ = new [1]int (slicelit)
+	 gza6_ = &gza5_[0:int]
+	 *gza6_ = 0:int
+	 gza7_ = slice gza5_[:]
+	 gza8_ = rakim(a, gza7_)
+	 gza9_ = doom(a, gza8_)
+	 gza10_ = gza9_ != -2:int
+	 if gza10_ goto 1 else 2
+
+.2:
+	 len_of_return_list = len(return_list_value)
+	 jump 3
+
+.3:
+	 wu = phi [2: 0:int, 11: new_wu] #wu
+	 old_i = phi [2: -1:int, 11: i]
+	 i = old_i + 1:int
+	 gza15_ = i < len_of_return_list
+	 if gza15_ goto 4 else 5
+
+.4:
+	 len_of_a = len(a)
+	 gza17_ = i < len_of_a
+	 if gza17_ goto 6 else 7
+
+.5:
+	 return return_list_value
+
+.6:
+	 gza18_ = &a[i]
+	 a_i_val = *gza18_
+	 jump 7
+
+.7:
+	 a_i = phi [4: 0:int, 6: a_i_val] #a_i
+	 gza21_ = len(b)
+	 gza22_ = i < gza21_
+	 if gza22_ goto 8 else 9
+
+.8:
+	 gza23_ = &b[i]
+	 b_i_val = *gza23_
+	 jump 9
+
+.9:
+	 b_i = phi [7: 0:int, 8: b_i_val] #b_i
+	 gza26_ = a_i + b_i
+	 sum_of_digits = gza26_ + wu
+	 new_wu = sum_of_digits / 10:int
+	 gza29_ = sum_of_digits >= 10:int
+	 if gza29_ goto 10 else 11
+
+.11:
+	 s_of_digits = phi [9: sum_of_digits, 10: gza30_] #tmp
+	 gza32_ = &return_list_value[i]
+	 *gza32_ = s_of_digits
+	 jump 3
+
+
+
+
+func main.guru at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:14:6; called 70;
+.0:
+	 guru0_ = a > b
+	 if guru0_ goto 1 else 2
+
+.1:
+	 return a
+
+.2:
+	 return b
+
+
+
+
+func main.rakim at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:108:6; called 2;
+.0:
+	 rakim0_ = doom(a, b)
+	 rakim1_ = rakim0_ == -1:int
+	 if rakim1_ goto 1 else 2
+
+.2:
+	 rakim4_ = len(a)
+	 diff_arr = make []int rakim4_ rakim4_
+	 jump 5
+
+.3:
+	 rakim6_ = len(a)
+	 rakim7_ = i < rakim6_
+	 if rakim7_ goto 6 else 7
+
+.4:
+	 return diff_arr
+
+.5:
+	 i = phi [2: 0:int, 11: new_i] #i
+	 rakim9_ = len(a)
+	 rakim10_ = i < rakim9_
+	 if rakim10_ goto 3 else 4
+
+.6:
+	 rakim11_ = &a[i]
+	 a_i_val = *rakim11_
+	 jump 7
+
+.7:
+	 a_i = phi [3: 0:int, 6: a_i_val] #a_i
+	 rakim14_ = len(b)
+	 rakim15_ = i < rakim14_
+	 if rakim15_ goto 8 else 9
+
+.8:
+	 rakim16_ = &b[i]
+	 b_i_val = *rakim16_
+	 jump 9
+
+.9:
+	 b_i = phi [7: 0:int, 8: b_i_val] #b_i
+	 rakim19_ = a_i < b_i
+	 if rakim19_ goto 10 else 11
+
+.11:
+	 rakim25_ = phi [9: a_i, 10: rakim24_] #a_i
+	 rakim26_ = &diff_arr[i]
+	 rakim27_ = rakim25_ - b_i
+	 *rakim26_ = rakim27_
+	 new_i = i + 1:int
+	 jump 5
+
+
+
+
+func main.doom at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:24:6; called 31;
+.0:
+	 len_of_aa = len(aa)
+	 len_of_aa_div2 = len_of_aa / 2:int
+	 jump 3
+
+.1:
+	 doom2_ = &aa[ii]
+	 current_a = *doom2_
+	 doom4_ = current_a == 0:int
+	 if doom4_ goto 4 else 5
+
+.2:
+	 length_of_aa = len(aa)
+	 aa_length_min_1 = length_of_aa - 1:int
+	 jump 8
+
+.3:
+	 ii = phi [0: len_of_aa_div2, 5: ii] #ii
+	 doom8_ = ii >= 1:int
+	 if doom8_ goto 1 else 2
+
+.4:
+	 doom9_ = &aa[ii]
+	 *doom9_ = 0:int
+	 jump 5
+
+.5:
+	 ii = ii - 1:int
+	 jump 3
+
+.6:
+	 doom11_ = &aa[i]
+	 doom12_ = *doom11_
+	 doom13_ = doom12_ > 0:int
+	 if doom13_ goto 9 else 10
+
+.7:
+	 m = phi [8: nil:[]int, 9: doom20_] #m
+	 len_of_bb = len(bb)
+	 doom16_ = len_of_bb - 1:int
+	 jump 13
+
+.8:
+	 i = phi [2: aa_length_min_1, 10: old_loop_var] #i
+	 doom18_ = i >= 0:int
+	 if doom18_ goto 6 else 7
+
+.9:
+	 doom19_ = i + 1:int
+	 doom20_ = slice aa[:doom19_]
+	 jump 7
+
+.10:
+	 old_loop_var = i - 1:int
+	 jump 8
+
+.11:
+	 doom22_ = &bb[i]
+	 doom23_ = *doom22_
+	 doom24_ = doom23_ > 0:int
+	 if doom24_ goto 14 else 15
+
+.12:
+	 doom25_ = phi [13: nil:[]int, 14: doom31_] #f
+	 doom26_ = len(aa)
+	 doom27_ = doom26_ - 1:int
+	 jump 18
+
+.13:
+	 i = phi [7: doom16_, 15: doom32_] #i
+	 doom29_ = i >= 0:int
+	 if doom29_ goto 11 else 12
+
+.14:
+	 doom30_ = i + 1:int
+	 doom31_ = slice bb[:doom30_]
+	 jump 12
+
+.15:
+	 doom32_ = i - 1:int
+	 jump 13
+
+.16:
+	 doom33_ = &aa[doom39_]
+	 doom34_ = *doom33_
+	 doom35_ = doom34_ > 0:int
+	 if doom35_ goto 19 else 20
+
+.17:
+	 doom36_ = len(m)
+	 doom37_ = len(doom25_)
+	 doom38_ = doom36_ > doom37_
+	 if doom38_ goto 21 else 22
+
+.18:
+	 doom39_ = phi [12: doom27_, 20: doom44_] #i
+	 doom40_ = doom39_ >= 0:int
+	 if doom40_ goto 16 else 17
+
+.19:
+	 doom41_ = &aa[doom39_]
+	 doom42_ = *doom41_
+	 doom43_ = 0:int + doom42_
+	 jump 17
+
+.20:
+	 doom44_ = doom39_ - 1:int
+	 jump 18
+
+.21:
+	 return 1:int
+
+.22:
+	 doom45_ = len(m)
+	 doom46_ = len(doom25_)
+	 doom47_ = doom45_ < doom46_
+	 if doom47_ goto 23 else 24
+
+.23:
+	 return -1:int
+
+.24:
+	 doom48_ = len(m)
+	 doom49_ = doom48_ - 1:int
+	 jump 27
+
+.25:
+	 doom50_ = &m[doom55_]
+	 doom51_ = *doom50_
+	 doom52_ = &doom25_[doom55_]
+	 doom53_ = *doom52_
+	 doom54_ = doom51_ > doom53_
+	 if doom54_ goto 28 else 29
+
+.26:
+	 return -2:int
+
+.27:
+	 doom55_ = phi [24: doom49_, 31: doom62_] #i
+	 doom56_ = doom55_ >= 0:int
+	 if doom56_ goto 25 else 26
+
+.29:
+	 doom57_ = &m[doom55_]
+	 doom58_ = *doom57_
+	 doom59_ = &doom25_[doom55_]
+	 doom60_ = *doom59_
+	 doom61_ = doom58_ < doom60_
+	 if doom61_ goto 30 else 31
+
+.31:
+	 doom62_ = doom55_ - 1:int
+	 jump 27
+
+
+
+
+func main.nas at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:174:6; called 27;
+.0:
+	 nas0_ = len(a)
+	 nas1_ = nas0_ / 2:int
+	 nas2_ = len(a)
+	 nas3_ = nas2_ / 2:int
+	 nas4_ = nas1_ + nas3_
+	 new_outut_arr = make []int 0:int nas4_
+	 len_of_a = len(a)
+	 len_of_a_min_1 = len_of_a - 1:int
+	 jump 3
+
+.1:
+	 current_a_char = a[loop_var]
+	 current_a_digit = current_a_char - 48:byte
+	 int_current_a_digit = convert int <- byte (current_a_digit)
+	 nas11_ = int_current_a_digit >= 0:int
+	 if nas11_ goto 6 else 5
+
+.2:
+	 return nas13_
+
+.3:
+	 z = phi [0: 0:int, 8: nas27_] #z
+	 nas13_ = phi [0: new_outut_arr, 8: nas23_] #msg
+	 loop_var = phi [0: len_of_a_min_1, 8: loop_var_min_1] #i
+	 nas15_ = loop_var >= 0:int
+	 if nas15_ goto 1 else 2
+
+.4:
+	 nas16_ = z + int_current_a_digit
+	 nas17_ = guru(int_current_a_digit, 0:int)
+	 nas18_ = new [1]int (varargs)
+	 nas19_ = &nas18_[0:int]
+	 *nas19_ = nas17_
+	 nas20_ = slice nas18_[:]
+	 nas21_ = append(nas13_, nas20_...)
+	 jump 5
+
+.5:
+	 nas22_ = phi [1: z, 6: z, 4: nas16_] #z
+	 nas23_ = phi [1: nas13_, 6: nas13_, 4: nas21_] #msg
+	 nas24_ = nas22_ == 1024:int
+	 if nas24_ goto 7 else 8
+
+.6:
+	 nas25_ = int_current_a_digit < 10:int
+	 if nas25_ goto 4 else 5
+
+.8:
+	 nas27_ = phi [5: nas22_, 7: nas26_] #z
+	 loop_var_min_1 = loop_var - 1:int
+	 jump 3
+
+
+
+
+func main.kendrick at /home/gull.omer/go/src/omer/ssa/omerr/version3/ssa.go:238:6; called 26;
+.0:
+	 kendrick0_ = len(a)
+	 jump 1
+
+.1:
+	 kendrick1_ = phi [0: 0:int, 2: kendrick7_] #damn
+	 kendrick2_ = phi [0: -1:int, 2: kendrick3_]
+	 kendrick3_ = kendrick2_ + 1:int
+	 kendrick4_ = kendrick3_ < kendrick0_
+	 if kendrick4_ goto 2 else 3
+
+.2:
+	 kendrick5_ = &a[kendrick3_]
+	 kendrick6_ = *kendrick5_
+	 kendrick7_ = kendrick1_ + kendrick6_
+	 jump 1
+
+.3:
+	 return kendrick1_
+
+
+
+
