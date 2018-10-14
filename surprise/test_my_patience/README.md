@@ -7,3 +7,13 @@ It is rumored that somehow the watchmaker was the only person who succeeded to c
 Think you're as good as the watchmaker?
 
 Note: This file is not malicious in any way
+
+## Solution
+
+This one is packed and also anti disassembly / debugging techniques was used.
+
+The easiest way to solve it is to do the following:
+
+- Run the exe.
+- Use OllyDump to dump the dump the unpacked PE file.
+- Statically analyze the code, easily find out the key.
