@@ -10,7 +10,7 @@ Note: This file is not malicious in any way
 
 ## Solution
 
-This one is packed and also anti disassembly / debugging techniques where used.
+This one is packed and also anti disassembly / debugging techniques were used.
 
 The easiest way to solve it is to do the following:
 
